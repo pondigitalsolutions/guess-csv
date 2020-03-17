@@ -1,0 +1,16 @@
+{
+  "name": "guess-csv",
+  "version": "1.0.0",
+  "description": "analyze a csv file and make an educated guess based on the data/headers for a data mapping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "berrypiest+github@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "fast-levenshtein": "^2.0.6",
+    "vindec-validator": "^1.1.3"
+  }
+}
