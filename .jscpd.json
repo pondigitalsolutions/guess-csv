@@ -1,0 +1,14 @@
+{
+  "threshold": 3,
+  "reporters": [
+    "json",
+    "console"
+  ],
+  "ignore": [
+    "**/__snapshots__/**",
+    "**/__fixtures__/**",
+    "src/example.js"
+  ],
+  "absolute": true,
+  "gitignore": true
+}

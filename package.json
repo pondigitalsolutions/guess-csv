@@ -1,16 +1,84 @@
 {
-  "name": "guess-csv",
+  "name": "@apiest-pon/guess-csv",
   "version": "1.0.0",
   "description": "analyze a csv file and make an educated guess based on the data/headers for a data mapping",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/guess.js",
+  "files": [
+    "src/guess.js",
+    "src/analyze.js",
+    "src/validators/index.js",
+    "src/validators/DateValidator.js",
+    "src/validators/LicensePlateValidator.js",
+    "src/validators/NumericValidator.js",
+    "src/validators/StringValidator.js",
+    "src/validators/VinValidator.js",
+    "src/validators/Validator.js"
+  ],
+  "keywords": [
+    "javascript",
+    "csv",
+    "import mapping"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "ponstandard src",
+    "lint:report": "ponstandard src | standard-reporter --json > report.json",
+    "lint:fix": "ponstandard src --fix",
+    "test": "jest",
+    "test:watch": "jest src --watch",
+    "coveralls": "jest && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "cpd": "node_modules/jscpd/bin/jscpd src",
+    "vulnerabilities": "npm audit --production"
   },
-  "author": "berrypiest+github@gmail.com",
-  "license": "ISC",
+  "author": {
+    "name": "Berry Piest",
+    "email": "berry.piest@pon.com",
+    "url": "https://www.pon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apiest-pon/guess-csv.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "csvtojson": "^2.0.10",
+    "dayjs": "^1.10.7",
     "fast-levenshtein": "^2.0.6",
     "vindec-validator": "^1.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.14.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
+    "@babel/preset-env": "^7.12.10",
+    "@jest/globals": "^27.0.6",
+    "@ponbike/ponstandard": "^0.3.0",
+    "babel-jest": "^27.0.6",
+    "codecov": "^3.8.1",
+    "coveralls": "^3.1.0",
+    "eslint": "^8.4.1",
+    "esm": "^3.2.25",
+    "jest": "^27.0.6",
+    "jest-junit": "^13.0.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "jscpd": "^3.3.26",
+    "prettier": "^2.2.0",
+    "standard": "^16.0.3",
+    "standard-reporter": "^1.0.5",
+    "supertest": "^6.0.1"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "ponstandard": {
+    "parser": "@babel/eslint-parser",
+    "globals": [
+      "btoa"
+    ],
+    "ignore": [
+      "**/__fixtures__/"
+    ]
   }
 }
