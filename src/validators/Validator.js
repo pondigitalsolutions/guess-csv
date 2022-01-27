@@ -1,11 +1,11 @@
 export default class Validator {
   #synonyms
-  #re
+  #regex
   #header
 
   constructor ({ header, dictionary, regex, flags = '' } = {}) {
     if (regex) {
-      this.#re = new RegExp(regex, flags)
+      this.#regex = new RegExp(regex, flags)
     }
     this.#synonyms = (Array.isArray(dictionary)) ? dictionary : []
     if (header) {
@@ -23,6 +23,6 @@ export default class Validator {
   }
 
   validate (val) {
-    return !!(val.match(this.#re))
+    return !!(val.match(this.#regex))
   }
 }
