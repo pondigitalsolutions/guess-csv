@@ -21,11 +21,7 @@ import {
   Validator
  } from '@apiest-pon/guess-csv'
 
-const logger = {
-  info: (txt) => { console.log(txt) },
-  debug: (txt) => { console.log(txt) },
-  trace: (txt) => {  }
-}
+const logger = console
 const domain = [
   new VinValidator({ header: 'vin' }),
   new LicensePlateValidator({ header: 'kenteken' }),

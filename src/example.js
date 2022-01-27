@@ -2,14 +2,7 @@ import { fetchDatafromCsv } from './analyze.js'
 import { educatedGuess } from './guess.js'
 import { Validator, VinValidator, LicensePlateValidator, NumericValidator, DateValidator, StringValidator } from './validators/index.js'
 
-const logger = {
-  // eslint-disable-next-line no-console
-  info: (txt) => { console.log(txt) },
-  // eslint-disable-next-line no-console
-  debug: (txt) => { console.log(txt) },
-  // eslint-disable-next-line no-console
-  trace: (txt) => { console.log(txt) }
-}
+const logger = console
 
 const domainCar = [
   new VinValidator({ header: 'vin' }),
