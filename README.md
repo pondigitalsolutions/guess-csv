@@ -1,4 +1,4 @@
-# @apiest-pon/guess-csv
+# @pondigitalsolutions/guess-csv
 
 With this package you can make an educated guess for the mapping of a csv file. Without knowing about the headers or data. It will make an educated guess based on the header and the data of the first x lines.
 
@@ -19,7 +19,7 @@ import {
   VinValidator,
   LicensePlateValidator,
   Validator
- } from '@apiest-pon/guess-csv'
+ } from '@pondigitalsolutions/guess-csv'
 
 const logger = console
 const domain = [
