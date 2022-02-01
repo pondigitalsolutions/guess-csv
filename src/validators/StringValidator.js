@@ -1,15 +1,3 @@
-import Validator from './Validator.js'
-
-export default class StringValidator extends Validator {
-  constructor ({ header, dictionary = [] } = {}) {
-    super({ header, dictionary })
-  }
-
-  validate (val) {
-    return (val.constructor === String)
-  }
-}
-
 // Copyright 2021 Pon Holding
 
 // This program is free software: you can redistribute it and/or modify
@@ -24,3 +12,15 @@ export default class StringValidator extends Validator {
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import Validator from './Validator.js'
+
+export default class StringValidator extends Validator {
+  constructor ({ header, dictionary = [] } = {}) {
+    super({ header, dictionary })
+  }
+
+  validate (val) {
+    return (val.constructor === String)
+  }
+}

@@ -1,17 +1,3 @@
-import vinval from 'vindec-validator'
-import Validator from './Validator.js'
-
-export default class VinValidator extends Validator {
-  constructor ({ header, dictionary = ['chassisnummer', 'vin'] } = {}) {
-    super({ header, dictionary })
-  }
-
-  validate (val) {
-    if (val.constructor !== String) return false
-    return vinval.valid(val)
-  }
-}
-
 // Copyright 2021 Pon Holding
 
 // This program is free software: you can redistribute it and/or modify
@@ -26,3 +12,17 @@ export default class VinValidator extends Validator {
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import vinval from 'vindec-validator'
+import Validator from './Validator.js'
+
+export default class VinValidator extends Validator {
+  constructor ({ header, dictionary = ['chassisnummer', 'vin'] } = {}) {
+    super({ header, dictionary })
+  }
+
+  validate (val) {
+    if (val.constructor !== String) return false
+    return vinval.valid(val)
+  }
+}
