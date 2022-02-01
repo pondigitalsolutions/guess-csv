@@ -1,3 +1,5 @@
+[![Node CI][npm-image]][npm-url] [![Bugs][bugs-image]][bugs-url] [![Code Smells][code-smells-image]][code-smells-url] [![Duplicated Lines (%)][duplicate-lines-image]][duplicate-lines-url] [![Maintainability Rating][maintainability-rate-image]][maintainability-rate-url] [![Reliability Rating][reliability-rate-image]][reliability-rate-url] [![Security Rating][security-rate-image]][security-rate-url] [![Technical Debt][technical-debt-image]][technical-debt-url] [![Vulnerabilities][vulnerabilitiest-image]][vulnerabilitiest-url] [![Quality Gate Status][quality-gate-image]][quality-gate-url] [![Coverage][coverage-image]][coverage-url]
+
 # @pondigitalsolutions/guess-csv
 
 With this package you can make an educated guess for the mapping of a csv file. Without knowing about the headers or data. It will make an educated guess based on the header and the data of the first x lines.
@@ -63,3 +65,36 @@ Currently their are a few Validators available:
 * StringValidator - Checks if the data is of type string
 * VinValidator - Checks for vin numbers (chassisnumbers)
 * Validator - The Base validator works with a regex
+
+[npm-url]: https://github.com/pondigitalsolutions/guess-csv/actions/workflows/nodejs.yml
+[npm-image]: https://github.com/pondigitalsolutions/guess-csv/actions/workflows/nodejs.yml/badge.svg
+
+[bugs-url]: https://sonarcloud.io/project/issues?id=pondigitalsolutions_guess-csv&resolved=false&types=BUG
+[bugs-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=bugs
+
+[code-smells-url]: https://sonarcloud.io/project/issues?id=pondigitalsolutions_guess-csv&resolved=false&types=CODE_SMELL
+[code-smells-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=code_smells
+
+[duplicate-lines-url]: https://sonarcloud.io/component_measures?id=pondigitalsolutions_guess-csv&metric=duplicated_lines_density&view=list
+[duplicate-lines-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=duplicated_lines_density
+
+[maintainability-rate-url]: https://sonarcloud.io/project/issues?id=pondigitalsolutions_guess-csv&resolved=false&types=CODE_SMELL
+[maintainability-rate-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=sqale_rating
+
+[reliability-rate-url]: https://sonarcloud.io/component_measures?id=pondigitalsolutions_guess-csv&metric=Reliability
+[reliability-rate-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=reliability_rating
+
+[security-rate-url]: https://sonarcloud.io/project/security_hotspots?id=pondigitalsolutions_guess-csv
+[security-rate-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=security_rating
+
+[technical-debt-url]: https://sonarcloud.io/component_measures?id=pondigitalsolutions_guess-csv
+[technical-debt-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=sqale_index
+
+[vulnerabilitiest-url]: https://sonarcloud.io/project/issues?id=pondigitalsolutions_guess-csv&resolved=false&types=VULNERABILITY
+[vulnerabilitiest-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=vulnerabilities
+
+[quality-gate-url]: https://sonarcloud.io/summary/new_code?id=pondigitalsolutions_guess-csv
+[quality-gate-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=alert_status
+
+[coverage-url]: https://sonarcloud.io/component_measures?id=pondigitalsolutions_guess-csv&metric=coverage&view=list
+[coverage-image]: https://sonarcloud.io/api/project_badges/measure?project=pondigitalsolutions_guess-csv&metric=coverage
