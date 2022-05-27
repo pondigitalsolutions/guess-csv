@@ -14,8 +14,6 @@ module.exports = {
 
   testMatch: ['**/__tests__/*.js'],
 
-  testURL: 'http://localhost/',
-
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.js', 'src/**/*.cjs', 'src/**/*.mjs', '!src/example.js'],
   coverageThreshold: {
