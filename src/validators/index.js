@@ -19,6 +19,7 @@ import LicensePlateValidator from './LicensePlateValidator.js'
 import DateValidator from './DateValidator.js'
 import NumericValidator from './NumericValidator.js'
 import StringValidator from './StringValidator.js'
+import BooleanValidator from './BooleanValidator.js'
 
 export default Validator
 export {
@@ -27,5 +28,6 @@ export {
   LicensePlateValidator,
   DateValidator,
   NumericValidator,
-  StringValidator
+  StringValidator,
+  BooleanValidator
 }
