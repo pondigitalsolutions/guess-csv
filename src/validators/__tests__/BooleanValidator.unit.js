@@ -22,15 +22,20 @@ describe('Validator Tests', () => {
   test.each([
     { a: 'test', expected: false },
     { a: 1, expected: true },
+    { a: 0, expected: true },
     { a: '1', expected: true },
     { a: { a: 42 }, expected: false },
     { a: 'yes', expected: true },
     { a: 'true', expected: true },
-    { a: 'false', expected: false },
+    { a: 'false', expected: true },
     { a: 'y', expected: true },
     { a: 'x', expected: true },
     { a: true, expected: true },
-    { a: false, expected: false }
+    { a: false, expected: true },
+    { a: '-', expected: true },
+    { a: 'n', expected: true },
+    { a: 'off', expected: true },
+    { a: '0', expected: true }
 
   ])('Test if the DateValidator works, $a', ({ a, expected }) => {
     expect(validator.validate(a)).toEqual(expected)
