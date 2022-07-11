@@ -22,17 +22,17 @@ export default class BooleanValidator extends Validator {
 
   validate (value) {
     if (value.constructor === String) {
-      return ['true', 't', 'yes', 'y', 'on', '1', 'x'].includes(
+      return ['true', 't', 'yes', 'y', 'on', '1', 'x', '0', 'off','n', 'no', 'f', 'false', '-'].includes(
         value.trim().toLowerCase()
       )
     }
 
     if (value.constructor === Number) {
-      return value.valueOf() === 1
+      return value.valueOf() === 1 || value.valueOf() === 0
     }
 
     if (value.constructor === Boolean) {
-      return value.valueOf()
+      return value.valueOf() ===  true || value.valueOf() ===  false
     }
 
     return false
