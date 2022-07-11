@@ -60,6 +60,7 @@ describe('Get an educated guess for a cars csv', () => {
         KENTEKEN: 'kenteken'
       },
       options: {
+        flatKeys: true,
         delimiter: ';',
         includeColumns: /(CHASSISNUMMER|KENTEKEN|DEALERNUMMER)/
       },

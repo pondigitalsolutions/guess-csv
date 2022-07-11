@@ -53,8 +53,8 @@ function rename (obj, newKeys) {
   return Object.assign({}, ...keyValues)
 }
 
-function fetchMapping (inputData, delimiter, obj) {
-  return inputData.then(csvData => csv({ delimiter: delimiter })
+function fetchMapping (inputData, delimiter, obj, options) {
+  return inputData.then(csvData => csv({ ...options, delimiter: delimiter })
     .fromString(csvData)
     .then(json => json.reduce((acc, cur) => {
       const keys = Object.keys(cur)
@@ -70,23 +70,23 @@ function fetchMapping (inputData, delimiter, obj) {
     }, {})))
 }
 
-function calculateDelimiters (delimiters, csvData) {
-  const delimiterTest = delimiters.map(d => delimiterFilter(csvData, d))
+function calculateDelimiters (delimiters, csvData, options) {
+  const delimiterTest = delimiters.map(d => delimiterFilter(csvData, d, options))
   return Promise.all(delimiterTest)
     .then(vals => vals.filter(obj => obj.value === true))
 }
 
-function detectCsvDelimiter (inputData, delimiters) {
+function detectCsvDelimiter (inputData, delimiters, options) {
   return inputData
-    .then(csvData => calculateDelimiters(delimiters, csvData))
+    .then(csvData => calculateDelimiters(delimiters, csvData, options))
     .then(d => {
       if (d.length === 0) throw new Error('Delimiter cannot be found')
       return d.pop().delimiter
     })
 }
 
-async function delimiterFilter (csvData, delimiter) {
-  const rows = await csv({ delimiter: delimiter }).fromString(csvData)
+async function delimiterFilter (csvData, delimiter, options) {
+  const rows = await csv({ ...options, delimiter: delimiter }).fromString(csvData)
   return { delimiter: delimiter, value: rows.some(row => Object.keys(row).length > 1) }
 }
 

@@ -20,21 +20,23 @@ import {
   LicensePlateValidator,
   DateValidator,
   NumericValidator,
+  BooleanValidator,
   StringValidator
 } from './validators/index.js'
 
-const educatedGuess = async ({ fileName, linesToAnalyze = 4, domain = [], logger, delimiters = [',', ';', '\t'] }) => {
+const educatedGuess = async ({ fileName, linesToAnalyze = 4, domain = [], logger, delimiters = [',', ';', '\t'], csvOptions = { flatKeys: true } }) => {
   const csvData = getFirstDataLines(fileName, linesToAnalyze)
-  const delimiter = await detectCsvDelimiter(csvData, delimiters)
+  const delimiter = await detectCsvDelimiter(csvData, delimiters, csvOptions)
 
   logger.debug(`Delimiter Found: ${delimiter}`)
 
-  const mapping = await fetchMapping(csvData, delimiter, domain)
+  const mapping = await fetchMapping(csvData, delimiter, domain, csvOptions)
 
   logger.debug(`Mapping Suggestion ${JSON.stringify(mapping)}`)
 
   const includeColumns = new RegExp(`(${Object.keys(mapping).join('|')})`)
   const options = {
+    ...csvOptions,
     includeColumns,
     delimiter
   }
@@ -53,6 +55,7 @@ export {
   Validator,
   VinValidator,
   LicensePlateValidator,
+  BooleanValidator,
   DateValidator,
   NumericValidator,
   StringValidator
