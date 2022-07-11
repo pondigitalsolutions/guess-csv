@@ -1,6 +1,6 @@
 {
   "name": "@pondigitalsolutions/guess-csv",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Analyze a csv file and make an educated guess based on the data/headers for a data mapping",
   "type": "module",
   "main": "src/guess.js",
