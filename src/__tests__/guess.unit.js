@@ -62,7 +62,7 @@ describe('Get an educated guess for a cars csv', () => {
       options: {
         flatKeys: true,
         delimiter: ';',
-        includeColumns: /(CHASSISNUMMER|KENTEKEN|DEALERNUMMER)/
+        includeColumns: /(^CHASSISNUMMER$|^KENTEKEN$|^DEALERNUMMER$)/
       },
       fileName: fileNameCar
     })
