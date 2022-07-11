@@ -34,7 +34,7 @@ const educatedGuess = async ({ fileName, linesToAnalyze = 4, domain = [], logger
 
   logger.debug(`Mapping Suggestion ${JSON.stringify(mapping)}`)
 
-  const includeColumns = new RegExp(`(${Object.keys(mapping).join('|')})`)
+  const includeColumns = new RegExp(`(${Object.keys(mapping).map(k => `^${k}$`).join('|')})`)
   const options = {
     ...csvOptions,
     includeColumns,
