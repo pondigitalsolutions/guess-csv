@@ -22,7 +22,7 @@ export default class BooleanValidator extends Validator {
 
   validate (value) {
     if (value.constructor === String) {
-      return ['true', 't', 'yes', 'y', 'on', '1', 'x', '0', 'off','n', 'no', 'f', 'false', '-'].includes(
+      return ['true', 't', 'yes', 'y', 'on', '1', 'x', '0', 'off', 'n', 'no', 'f', 'false', '-'].includes(
         value.trim().toLowerCase()
       )
     }
@@ -32,7 +32,7 @@ export default class BooleanValidator extends Validator {
     }
 
     if (value.constructor === Boolean) {
-      return value.valueOf() ===  true || value.valueOf() ===  false
+      return value.valueOf() === true || value.valueOf() === false
     }
 
     return false
