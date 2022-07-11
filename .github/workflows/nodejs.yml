@@ -3,27 +3,27 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 17.x]
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Runs NodeJS CI Action
+      uses: pondevelopment/actions/nodejs@main
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run vulnerabilities
-        npm run lint
-        npm run cpd
-        npm test
-      env:
-        NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        CI: true
+        NPM_REGISTRY_TOKEN: ${{secrets.NPM_TOKEN}}
+        NODE_VERSION: ${{ matrix.node-version }}
+  
+  sonar:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:    
+    - name: Runs SonarCloud Action
+      uses: pondevelopment/actions/sonarcloud@main
+      with:
+        NPM_REGISTRY_TOKEN: ${{ secrets.NPM_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

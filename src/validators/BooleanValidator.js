@@ -14,20 +14,27 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import Validator from './Validator.js'
-import VinValidator from './VinValidator.js'
-import LicensePlateValidator from './LicensePlateValidator.js'
-import DateValidator from './DateValidator.js'
-import NumericValidator from './NumericValidator.js'
-import StringValidator from './StringValidator.js'
-import BooleanValidator from './BooleanValidator.js'
 
-export default Validator
-export {
-  Validator,
-  VinValidator,
-  LicensePlateValidator,
-  DateValidator,
-  NumericValidator,
-  StringValidator,
-  BooleanValidator
+export default class BooleanValidator extends Validator {
+  constructor ({ header, dictionary = [] } = {}) {
+    super({ header, dictionary })
+  }
+
+  validate (value) {
+    if (value.constructor === String) {
+      return ['true', 't', 'yes', 'y', 'on', '1', 'x'].includes(
+        value.trim().toLowerCase()
+      )
+    }
+
+    if (value.constructor === Number) {
+      return value.valueOf() === 1
+    }
+
+    if (value.constructor === Boolean) {
+      return value.valueOf()
+    }
+
+    return false
+  }
 }
